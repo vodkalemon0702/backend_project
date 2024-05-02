@@ -4,6 +4,7 @@ import jakarta.servlet.DispatcherType;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.oauth2.jwt.JwtDecoders;
@@ -22,7 +23,10 @@ public class SecurityConfig {
                         .dispatcherTypeMatchers(DispatcherType.ERROR).permitAll()
                         .requestMatchers("/public/**").permitAll()
                         .anyRequest().authenticated())
-                .csrf(csrf -> csrf.disable());
+                .csrf(csrf -> csrf.disable())
+//                .cors(cors -> cors.disable())
+//                .cors(Customizer.withDefaults());
+        ;
         http
                 .oauth2ResourceServer(
                         oauth2ResourceServer -> oauth2ResourceServer.jwt(

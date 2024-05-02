@@ -76,9 +76,9 @@ public class CartItemServiceImpl implements CartItemService {
         try {
             UserEntity userEntity = userService.getEntityByFireBaseUserData(firebaseUserData);
             List<CartItemEntity> cartItemEntityList = cartItemRepository.findAllByUserEntity(userEntity);
-            if (cartItemEntityList.isEmpty()) {
-                throw new ProductListEmptyException();
-            }
+//            if (cartItemEntityList.isEmpty()) {
+//                throw new ProductListEmptyException();
+//            }
             List<CartItemResponseData> cartItemResponseDataList = new ArrayList<>();
             for (CartItemEntity cartItemEntity : cartItemEntityList) {
                 CartItemResponseData cartItemResponseData = new CartItemResponseData(cartItemEntity);

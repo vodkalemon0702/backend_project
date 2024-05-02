@@ -12,8 +12,9 @@ public class ProductEntity {
     private Integer pid;
     @Column(nullable = false)
     private String name;
+    @Column(length = 255)
     private String description;
-    @Column(name = "image_url")
+    @Column(name = "image_url",length = 255)
     private String imageUrl;
     @Column(nullable = false)
     private BigDecimal price;
